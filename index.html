@@ -28,14 +28,14 @@ var app = angular.module('app',['ngRoute'])
 var app = angular.module('app', ['ngRoute']).
 	config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 		$routeProvider.
-			when('/', {
+			when('/app-routing/', {
 				templateUrl: 'app-routing/home.html'
 			}).
-			when('/about', {
+			when('/app-routing/about', {
 				templateUrl: 'app-routing/about.html'
 			}).
 			otherwise({
-				redirectTo: '/'
+				redirectTo: '/app-routing/'
 			});
 		$locationProvider.html5Mode(true);
 	}]);
@@ -72,8 +72,8 @@ var app = angular.module('app', ['ngRoute']).
 	<a href="#/about">about</a>
 -->
 NEW
-	<a href="/">home</a>
-	<a href="/about">about</a>
+	<a href="/app-routing/">home</a>
+	<a href="/app-routing/about">about</a>
 
 	<ng-view></ng-view>
 </body>
