@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+	<title>Routing AngularJS</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js.map"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js.map"></script>
+	<base href="/">
+<script>
+/*
+var app = angular.module('app',['ngRoute'])
+	.config(function($routeProvider, $locationProvider) {
+		$routeProvider
+			.when('/', {
+				templateUrl : 'page1.html'
+			})
+			.when('/page2', {
+				templateUrl : 'page2.html'
+			})
+			.otherwise({
+				redirectTo: '/'
+			});
+		$locationProvider.html5Mode(true);
+	})
+*/
+var app = angular.module('app', ['ngRoute']).
+	config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+		$routeProvider.
+			when('/', {
+				templateUrl: 'home.html'
+				/*,controller: PhoneListCtrl*/
+			}).
+			when('/page2', {
+				templateUrl: 'about.html'
+				/*,controller: PhoneDetailCtrl*/
+			}).
+			otherwise({
+				redirectTo: '/'
+			});
+		$locationProvider.html5Mode(true);
+	}]);
+
+
+
+</script>
+</head>
+<body>
+	<a href="#/">home</a>
+	<a href="#/about">about</a>
+	<a href="/">home</a>
+	<a href="/about">about</a>
+	<ng-view></ng-view>
+</body>
+</html>
