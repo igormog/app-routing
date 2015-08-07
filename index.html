@@ -7,8 +7,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js.map"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js.map"></script>
+	<base href="/">
 <script>
-
+/*
 var app = angular.module('app',['ngRoute'])
 	.config(function($routeProvider, $locationProvider) {
 		$routeProvider
@@ -22,36 +23,57 @@ var app = angular.module('app',['ngRoute'])
 				redirectTo: '/'
 			});
 	})
-
-/*
-<base href="/">
+*/
 
 var app = angular.module('app', ['ngRoute']).
 	config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 		$routeProvider.
 			when('/', {
-				templateUrl: 'home.html'
+				templateUrl: 'app-routing/home.html'
 			}).
 			when('/about', {
-				templateUrl: 'about.html'
+				templateUrl: 'app-routing/about.html'
 			}).
 			otherwise({
 				redirectTo: '/'
 			});
 		$locationProvider.html5Mode(true);
 	}]);
-*/
 
+/*
+ angular.module('noHash', [])
+
+    .config(function($routeProvider, $locationProvider) {
+
+       $routeProvider
+           .when('/', {
+               templateUrl : 'partials/home.html',
+               controller : mainController
+           })
+           .when('/about', {
+               templateUrl : 'partials/about.html',
+               controller : mainController
+           })
+           .when('/contact', {
+               templateUrl : 'partials/contact.html',
+               controller : mainController
+           });
+
+       // use the HTML5 History API
+       $locationProvider.html5Mode(true);
+ });
+*/
 
 </script>
 </head>
 <body>
+<!--
 	<a href="#/">home</a>
 	<a href="#/about">about</a>
-<!--
+-->
 	<a href="/">home</a>
 	<a href="/about">about</a>
--->
+
 	<ng-view></ng-view>
 </body>
 </html>
