@@ -7,7 +7,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js.map"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js.map"></script>
-	<base href="/">
 <script>
 var app = angular.module('app', ['ngRoute']).
 	config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -21,7 +20,10 @@ var app = angular.module('app', ['ngRoute']).
 			otherwise({
 				redirectTo: '/app-routing/'
 			});
-		$locationProvider.html5Mode(true);
+		$locationProvider.html5Mode({
+			enabled: true,
+			requireBase: false
+		});
 	}]);
 </script>
 
