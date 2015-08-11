@@ -7,26 +7,25 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js.map"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js.map"></script>
-<script>
-var app = angular.module('app', ['ngRoute']).
-	config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-		$routeProvider.
-			when('/app-routing/', {
-				templateUrl: 'app-routing/home.html'
-			}).
-			when('/app-routing/about', {
-				templateUrl: 'app-routing/about.html'
-			}).
-			otherwise({
-				redirectTo: '/app-routing/'
+	<script>
+	var app = angular.module('app', ['ngRoute']).
+		config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+			$routeProvider.
+				when('/app-routing/', {
+					templateUrl: 'app-routing/home.html'
+				}).
+				when('/app-routing/about', {
+					templateUrl: 'app-routing/about.html'
+				}).
+				otherwise({
+					redirectTo: '/app-routing/'
+				});
+			$locationProvider.html5Mode({
+				enabled: true,
+				requireBase: false
 			});
-		$locationProvider.html5Mode({
-			enabled: true,
-			requireBase: false
-		});
-	}]);
-</script>
-
+		}]);
+	</script>
 </head>
 <body>
 	<a href="/app-routing/">home</a>
